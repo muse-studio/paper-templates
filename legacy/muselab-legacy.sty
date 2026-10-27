@@ -1,0 +1,33 @@
+%% muselab-legacy.sty --- 旧IPSJ原稿を読むための互換層
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{muselab-legacy}[2026/10/27 v1.0 Existing manuscript compatibility]
+\RequirePackage{latexsym}
+\RequirePackage{float}
+\RequirePackage{adjustbox}
+\RequirePackage{multirow}
+\RequirePackage{pdfpages}
+\RequirePackage{fancyvrb}
+\RequirePackage[hang,small,bf]{caption}
+\RequirePackage[subrefformat=parens]{subcaption}
+\captionsetup{compatibility=false}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{listingsutf8}
+\makeatletter
+%% 旧ipsj原稿の \author{和文名}{英文名}{所属}[メール] を受ける。
+\def\author#1#2#3[#4]{\gdef\@author{#1}}
+\newcommand{\etitle}[1]{}
+\newcommand{\figref}{\@ifstar\muselab@figrefstar\muselab@figref}
+\newcommand{\muselab@figref}[1]{図~\ref{#1}}
+\newcommand{\muselab@figrefstar}[1]{図}
+\newcommand{\tabref}{\@ifstar\muselab@tabrefstar\muselab@tabref}
+\newcommand{\muselab@tabref}[1]{表~\ref{#1}}
+\newcommand{\muselab@tabrefstar}[1]{表}
+\newcommand{\CaptionType}[1]{\def\@captype{#1}}
+\providecommand{\bf}{\bfseries}
+\providecommand{\ruby}[2]{\leavevmode\hbox{\raisebox{.9ex}{\scriptsize #2}\kern-.15em#1}}
+\newenvironment{acknowledgment}{\section*{謝辞}}{}
+\makeatother
+\renewcommand{\|}{\Verb|}
+\newtcolorbox{musequote}{colback=gray!10,colframe=black,boxrule=0.3mm,arc=.5mm,left=5mm,right=5mm,top=2mm,bottom=2mm,fontupper=\footnotesize}
+\newcommand{\from}[1]{\\\rightline{\small{---\textit{#1}}}}
+\endinput

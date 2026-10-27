@@ -1,0 +1,8 @@
+%% muselab-legacy.sty --- legacy/ に置いた互換層の入口
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{muselab-legacy}[2026/10/27 v1.0 Legacy compatibility loader]
+\InputIfFileExists{legacy/muselab-legacy.sty}{}{%
+  \PackageError{muselab-legacy}{legacy/muselab-legacy.sty not found}{%
+    Keep the legacy directory together with this file.}%
+}
+\endinput

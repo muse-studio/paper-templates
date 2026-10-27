@@ -1,0 +1,39 @@
+\section{はじめに}
+このテンプレートは、ゼミ内報告書と卒業論文の本文を書くための出発点である。新規原稿では標準LaTeXの命令を使う。文献の例として\cite{latexcompanion,knuth}を挙げる。
+
+\section{本文の書き方}
+\subsection{数式}
+本文中では $E=mc^2$ のように書く。別組の数式には equation 環境を使う。
+\begin{equation}
+  f(x)=\sum_{i=1}^{n} x_i
+\label{eq:sample}
+\end{equation}
+式\ref{eq:sample}は番号を付けて参照できる。
+
+\subsection{図と表}
+図\ref{fig:sample}は外部画像を置く場所の例である。実際の画像は `fig/` に入れる。
+\begin{figure}[tb]
+  \centering
+  \fbox{\rule{0pt}{28mm}\rule{0.8\columnwidth}{0pt}}
+  \caption{図の例}
+  \label{fig:sample}
+\end{figure}
+
+\begin{table}[tb]
+  \centering
+  \caption{表の例}
+  \label{tab:sample}
+  \begin{tabular}{ll}
+    \hline
+    項目 & 内容 \\
+    \hline
+    A & 例 \\
+    B & 例 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+表\ref{tab:sample}のように、表題は表の上に置く。
+
+\section{おわりに}
+本文、図表、数式、参考文献を確認してからPDFを提出する。
